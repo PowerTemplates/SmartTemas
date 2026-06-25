@@ -1,0 +1,1886 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+        integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style>
+        .rounded-lg {
+            border-radius: .8rem !important
+        }
+
+        .form-row .owl-carousel [class*=col-] {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .page-link:focus,
+        .btn.focus,
+        .btn:focus {
+            box-shadow: none;
+        }
+
+        .custom-control-input:focus:not(:checked)~.custom-control-label::before,
+        .custom-control-input:focus~.custom-control-label::before,
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #999999;
+        }
+
+        .scrollable {
+            overflow: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+
+        .owl-carousel .owl-nav [class*=owl-] {
+            background: #bbb !important;
+            color: #ffffff !important;
+            width: 30px;
+            height: 30px;
+            line-height: 32px !important;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .owl-carousel .owl-nav [class*=owl-]:hover {
+            background: #999;
+            border-radius: 30px;
+            color: #FFF;
+        }
+
+        .owl-carousel .owl-prev,
+        .owl-carousel .owl-next {
+            position: absolute;
+            top: 35%;
+            height: 30px;
+            margin: auto !important;
+        }
+
+        .owl-carousel .owl-prev {
+            left: 0px;
+        }
+
+        .owl-carousel .owl-next {
+            right: 0px;
+        }
+
+        .owl-carousel.brands-carousel .owl-stage,
+        .owl-carousel.products-carousel .owl-stage,
+        .owl-carousel.testimonials-carousel .owl-stage {
+            display: flex;
+        }
+
+        .owl-carousel .item {
+            display: flex;
+            flex: 1 0 auto;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .owl-carousel .item .product-list-item {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .card-product .discount {
+            left: 8px;
+            top: 7px;
+            z-index: 7;
+        }
+
+        .card-product .img-wrap img {
+            object-fit: cover;
+        }
+
+        .block {
+            padding: 20px 0;
+        }
+
+        .block-header {
+            text-align: center;
+        }
+
+        .block-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        .block-subtitle {
+            font-size: 15px;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        .block-products {
+            padding-bottom: 0px !important;
+        }
+
+        /* theme */
+        .box-meio {
+            background: #fff;
+            margin-left: -15px;
+            margin-right: -15px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .wrapper .container:last-child .box-meio:last-child {
+            padding-bottom: 50px;
+        }
+
+        .page-title .h4 {
+            padding: 30px 0 30px 0;
+            margin: 0;
+        }
+
+        /* brands carousel <-- */
+        .brands-carousel .owl-stage {
+            display: flex;
+        }
+
+        .brands-carousel .item {
+            display: flex;
+            flex: 1 0 auto;
+            height: 100%;
+            width: 100%;
+        }
+
+        .block-brands .box {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            min-height: 60px;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* brands carousel --> */
+
+        /* desktop */
+        @media (min-width: 991px) {}
+
+        /* mobile */
+        @media (max-width: 990px) {
+            .page-title .h4 {
+                padding: 20px 0 20px 0;
+            }
+
+            .box-meio.bg-transparent {
+                margin: 0;
+            }
+
+            .block .btn {
+                width: 100%;
+            }
+        }
+
+		#conteudo img {
+			width: auto;
+			height: auto;
+			display: block;
+			margin: 15px 0;
+			max-width: 100%;
+		}
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap-input-spinner@1.10.14/src/bootstrap-input-spinner.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+        integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"
+        integrity="sha512-gDWSGGWzTc0mD1P0NwDUsZsSrSyLsC8Mv0I14JtDFJXu2Pgo3ik5Uk1+BqxosbEJU2gDUD6W5DCpn7l29Ah9Ag=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"
+        integrity="sha512-BPbay65HZK0I/A8rKJYm1oLFOUaPUrxOfyx89UMVTpPzuc0uVASMcSk1QokHAuf9nti43BDcrLwappGfJSuJBA=="
+        crossorigin="anonymous"></script>
+    <script>
+        function validarCPF(cpf) {
+
+            cpf = cpf.replace(/[^\d]+/g, '');
+
+            if (cpf == '') return false;
+
+            if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" ||
+                cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999")
+                return false;
+
+            add = 0;
+            for (i = 0; i < 9; i++)
+                add += parseInt(cpf.charAt(i)) * (10 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(9)))
+                return false;
+
+            add = 0;
+            for (i = 0; i < 10; i++)
+                add += parseInt(cpf.charAt(i)) * (11 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(10)))
+                return false;
+
+            return true;
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        $(document).ready(function () {
+
+            $(".data").mask("00/00/0000", { clearIfNotMatch: true });
+            $('.cep').mask('00000-000', { clearIfNotMatch: true });
+            $(".cpf").mask("000.000.000-00", { clearIfNotMatch: true });
+            $(".cnpj").mask("00.000.000/0000-00", { clearIfNotMatch: true });
+            $('.valor').mask('000.000.000.000.000,00', { reverse: true });
+            $('.card-expiration-date').mask('00/00');
+            $('.card-number').mask('0000 0000 0000 0000');
+            $('.card-cvv').mask('0000');
+
+            var SPMaskBehavior = function (val) { return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009'; },
+                spOptions = { onKeyPress: function (val, e, field, options) { field.mask(SPMaskBehavior.apply({}, arguments), options); } };
+            $('.telefone').mask(SPMaskBehavior, spOptions);
+
+            // auto scroll to div
+            if ($(".scroll-to-here")[0]) {
+                var $anchor = $('.scroll-to-here').offset();
+                $('html, body').animate({ scrollTop: $anchor.top - 0 }, 1000);
+            }
+
+            $('.show-loading').click(function () {
+                $('.loading').fadeIn();
+            });
+
+            $('form').on('keyup', '.cep', function () {
+                var cep = $(this).val();
+                var url = $(this).attr('url');
+                var $endereco = $(this).parents('.endereco');
+                if (cep != "" && cep.length == 9) {
+                    $.ajax({
+                        type: 'get',
+                        url: url + '/' + cep,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.data.bairro != '') {
+                                $endereco.find(".logradouro").val(data.data.logradouro);
+                                $endereco.find(".bairro").val(data.data.bairro);
+                                $endereco.find(".cidade").val(data.data.cidade);
+                                $endereco.find(".uf").val(data.data.uf);
+                                $endereco.find(".numero").focus();
+                            }
+                        }
+                    });
+                }
+            });
+
+            $(".cpf").keyup(function () {
+                cpf = $(this).val().replace(/[^\d]+/g, '');
+                if (cpf.length == 11 && validarCPF($(this).val()) == false) {
+                    alert('O CPF ' + $(this).val() + ' inserido não é válido.')
+                    $(this).val('');
+                }
+            });
+
+            $('.copy-to-clipboard').click(function (e) {
+                e.preventDefault();
+                const el = document.createElement('textarea');
+                document.body.appendChild(el);
+                el.value = $(this).data('text');
+                el.select();
+                el.focus();
+                el.setSelectionRange(0, 99999);
+
+                try {
+                    document.execCommand('copy');
+                    alert('Conteúdo copiado com sucesso');
+                } catch (err) {
+                    alert('Desculpe, seu navegador não copiou o conteúdo.');
+                }
+
+                document.body.removeChild(el);
+            });
+
+            if ($.fn.owlCarousel) {
+                $('.products-carousel').owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: true,
+                    dots: false,
+                    slideBy: 4,
+                    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                    responsive: {
+                        0: {
+                            dots: false,
+                            items: 2
+                        },
+                        600: {
+                            dots: false,
+                            items: 3
+                        },
+                        1000: {
+                            dots: false,
+                            items: 4
+                        }
+                    }
+                });
+
+                $('.brands-carousel').owlCarousel({
+                    loop: false,
+                    nav: true,
+                    margin: 8,
+                    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                    responsive: {
+                        0: {
+                            dots: true,
+                            nav: false,
+                            slideBy: 2,
+                            items: 2
+                        },
+                        600: {
+                            dots: true,
+                            nav: false,
+                            slideBy: 3,
+                            items: 3
+                        },
+                        1000: {
+                            dots: true,
+                            nav: true,
+                            slideBy: 6,
+                            items: 6
+                        }
+                    }
+                });
+            }
+
+        })
+
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="https://smarttemas.netlify.app/tema-ella-shopify" />
+
+    <link rel="icon" type="image/png" href="https://smarttemas.netlify.app/favicon-32x32.png">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        body,
+        .product-text * {
+            font-family: 'Titillium Web' !important;
+        }
+    </style>
+
+    <style>
+        .fonte-padrao,
+        .btn,
+        .fonte-menu,
+        .fonte-titulo {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        .fonte-menu {
+            font-family: 'Titillium Web';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        .fonte-titulo,
+        .block-title {
+            font-family: 'Titillium Web';
+        }
+    </style>
+
+
+    <style>
+        header,
+        header.complete,
+        header.minimal {
+            background-color: #111111 !important;
+        }
+
+        header,
+        header a,
+        header.minimal h1,
+        header.minimal .back-icon a,
+        header .shortcuts .nav-item a {
+            color: #ffffff !important;
+        }
+
+        header.header-156848294 .search-wrap .input-group input,
+        header.header-156848294 .search-wrap .input-group button {
+            color: #ffffff !important;
+        }
+
+        .section-header,
+        .nav-mobile .line-1,
+        .nav-mobile .line-2 {
+            background-color: #111111 !important;
+        }
+
+        .section-header,
+        .section-header a,
+        .nav-mobile .line-1,
+        .nav-mobile .line-1 a,
+        .nav-mobile .line-1 i {
+            color: #ffffff !important;
+        }
+
+        .category-list,
+        .shortcuts-mobile-area {
+            background-color: #ffffff !important;
+        }
+
+        .category-list .item a,
+        .shortcuts-mobile-area,
+        .shortcuts-mobile-area a {
+            color: #212529 !important;
+        }
+
+        .nav-principal,
+        .menu-mobile {
+            background-color: #ffffff !important;
+        }
+
+        .menu-principal li>a.nav-link,
+        .menu-mobile .nav-link,
+        .menu-principal li>a.nav-link:hover,
+        .menu-mobile .nav-link:hover {
+            color: #212529 !important;
+        }
+
+
+
+
+
+        footer,
+        .direitos {
+            background-color: #111111;
+        }
+
+        footer,
+        footer a,
+        footer a:hover,
+        .direitos,
+        .direitos a,
+        .direitos a:hover {
+            color: #ffffff !important;
+        }
+
+        .section-footer,
+        .section-subscribe {
+            background-color: #111111;
+        }
+
+        .section-footer,
+        .section-subscribe,
+        .section-footer a,
+        .section-subscribe a {
+            color: #ffffff !important;
+        }
+    </style>
+
+    <!-- custom css -->
+    <style> </style>
+    <!-- end custom css -->
+
+    <title>Tema Ella Shopify: Vale a Pena? Análise Completa, Vantagens e Cuidados - SmartTemas</title>
+
+    <meta name="description" content="">
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="SmartTemas" />
+    <meta property="og:title" content="Tema Ella Shopify: Vale a Pena? Análise Completa, Vantagens e Cuidados - SmartTemas" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website" />
+
+
+
+
+
+
+
+
+
+
+
+
+    <script defer="" data-domain="smarttemas.netlify.app" src="script.js"></script>
+
+    <!-- custom -->
+
+    <!-- end custom -->
+</head>
+
+<body class="internal">
+
+    <div class="loading"><i class="fas fa-spinner fa-3x fa-spin"></i></div>
+
+    <style>
+        .loading {
+            display: none;
+            background: rgba(0, 0, 0, .5);
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            text-align: center;
+            position: fixed;
+            z-index: 9999;
+            color: #fff;
+            text-shadow: 0px 0px 30px #000;
+            padding-top: 200px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+
+    <div class="cookiealert-area">
+        <div class="alert text-center cookiealert rounded" role="alert" style="opacity:0.9;">
+            Ao navegar neste site você aceita o uso de cookies para criar uma melhor experiência de navegação.
+
+            <button type="button" class="btn btn-light btn-sm acceptcookies">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+    <style>
+        .cookiealert-area {
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65%;
+            bottom: 15px;
+            z-index: 9999;
+            max-width: 900px;
+        }
+
+        @media (max-width: 990px) {
+            .cookiealert-area {
+                width: 85%;
+            }
+        }
+    </style>
+
+    <div class="zap">
+        <a href="" aria-label="Conversar no WhatsApp" target="_blank"
+            class="box-zap zap-floating-button text-decoration-none">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <style>
+        .messenger {
+            right: 85px !important;
+        }
+
+        .zap {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            z-index: 99;
+        }
+
+        .box-zap {
+            width: 60px;
+            height: 60px;
+            background: #23B847;
+            border-radius: 50%;
+            color: #fff !important;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            margin: 2px;
+            padding: 10px;
+            font-size: 34px;
+            text-align: center;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.banners-topo-carousel').owlCarousel({
+                autoplay: true,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                autoHeight: true,
+                loop: true,
+                margin: 0,
+                dots: false,
+                nav: false,
+                slideBy: 1,
+                items: 1
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+    <header class="section-header d-none d-sm-none d-md-block header-165737185">
+        <section class="header-main pt-4 pt-md-4 pb-md-4">
+            <div class="container">
+                <div class="row d-flex justify-content-between align-items-center">
+
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-3">
+                        <div class="logo text-left">
+                            <a href="https://smarttemas.netlify.app/">
+                                <h1 class="logo-text">SmartTemas</h1>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6">
+                        <form action="https://smarttemas.netlify.app/produtos" method="get" class="search-wrap">
+                            <div class="input-group w-100">
+                                <input type="text" class="form-control" name="term" value="Buscar produto"
+                                    onfocus="if (this.value === 'Buscar produto' || this.value === 'Search product') this.value = '';">
+                                <div class="input-group-append">
+                                    <button class="btn btn-link" type="submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-3 pl-sm-0">
+                        <div class="float-none float-sm-right">
+
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <div class="nav-mobile d-md-none">
+        <nav class="navbar navbar-light">
+
+            <div class="line-1 px-3">
+                <div class="row no-gutters align-items-center h-100">
+
+                    <div class="col-auto mr-3">
+                        <a href="#" class="open-sidebar" data-section="category" data-from="left">
+                            <div class="icon-wrap">
+                                <i class="bi bi-list"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <div class="logo text-left">
+                            <a href="https://smarttemas.netlify.app/">
+                                <h1 class="logo-text">SmartTemas</h1>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-3 text-right">
+                        <div class="d-inline-flex align-items-center">
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="line-2 px-3 pt-1 pb-3">
+                <form action="https://smarttemas.netlify.app/produtos" method="get" class="search-wrap">
+                    <div class="input-group border">
+                        <input type="text" class="form-control border-0" placeholder="Buscar por produto" name="term"
+                            value="">
+                        <div class="input-group-btn">
+                            <button class="btn" type="submit">
+                                <i class="bi bi-search text-muted"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+    </div>
+
+    <style>
+        header a {
+            color: #6c757d;
+        }
+
+        header a:hover {
+            text-decoration: none;
+        }
+
+        header .logo img {
+            max-height: 100px;
+            max-width: 220px;
+        }
+
+        header .icon-wrap i {
+            font-size: 30px;
+            margin-right: 5px;
+        }
+
+        header .cart .icon-wrap i {
+            font-size: 27px;
+            margin-right: 8px;
+        }
+
+        header .cart-counter {
+            border-radius: 50px;
+            display: inline-block;
+            padding: 0.25em 0.4em;
+            margin-left: 0 !important;
+            font-size: 14px;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
+        header .search-wrap .input-group {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        header .search-wrap input {
+            border: none;
+            border-radius: 5px !important;
+            margin: 1px !important;
+        }
+
+        header .search-wrap button {
+            margin: 1px;
+            color: #999;
+        }
+
+        header .social-media-list li {
+            margin-bottom: 0 !important;
+        }
+
+        header .social-media-list a {
+            font-size: 12px;
+        }
+
+
+        /* tablet */
+        @media (max-width: 768px) {
+
+            header.header-3 .text-wrap,
+            header.header-4 .text-wrap,
+            header.header-5 .text-wrap {
+                display: none;
+            }
+        }
+
+        /* mobile */
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
+            body.menu-in {
+                overflow: hidden;
+                padding-top: 166px;
+            }
+
+            .nav-mobile nav {
+                padding: 0px;
+            }
+
+            .nav-mobile .logo img {
+                max-height: 80px;
+            }
+
+            .nav-mobile .navbar-toggler {
+                display: block;
+            }
+
+            .nav-mobile .line-1 {
+                height: 100px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .nav-mobile .line-1 i {
+                color: #6c757d;
+                font-size: 24px !important;
+                padding: 5px 0;
+            }
+
+            .nav-mobile .logo-text {
+                width: 100%;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: #6c757d;
+                font-size: 22px;
+            }
+
+            .nav-mobile .cart {
+                position: relative;
+                text-align: right;
+                display: inline-block;
+            }
+
+            .nav-mobile .cart .badge {
+                position: absolute;
+                right: -3px;
+                top: -3px;
+            }
+
+            .nav-mobile a {
+                color: #fff;
+                position: relative;
+            }
+
+            .nav-mobile .line-2 {
+                width: 100%;
+            }
+
+            .nav-mobile .line-2 .btn {
+                background: #fff !important;
+                border: none;
+                width: 36px;
+                height: 36px;
+                padding: 0px;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            .nav-mobile .line-2 .input-group {
+                background: #fff;
+                border-radius: .25rem;
+            }
+        }
+    </style>
+
+
+
+
+    <style>
+        .offcanvas-collapse {
+            position: fixed;
+            top: 0px;
+            z-index: 10;
+            bottom: 0;
+            width: 80%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            overflow-y: auto;
+            visibility: hidden;
+            background-color: #eee;
+            box-shadow: 3px 0px 25px #666;
+            right: -100%;
+            transition-property: right, visibility;
+            transition-timing-function: ease-in-out;
+            transition-duration: .3s;
+        }
+
+        .offcanvas-collapse.open {
+            right: 0;
+            visibility: visible;
+        }
+
+        .offcanvas-collapse.left {
+            left: -100%;
+            transition-property: left, visibility;
+            right: unset;
+        }
+
+        .offcanvas-collapse.left.open {
+            left: 0;
+            right: unset;
+        }
+
+
+
+        .offcanvas-bg-overlay {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9;
+            opacity: 0.5;
+            display: none;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8.9px);
+            -webkit-backdrop-filter: blur(8.9px);
+        }
+
+
+        /* desktop */
+        @media (min-width: 990px) {
+            .offcanvas-collapse {
+                width: 440px;
+            }
+        }
+    </style>
+
+    <div class="offcanvas-bg-overlay close-sidebar"></div>
+
+    <div class="sidebar py-3 px-4 navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+
+        <div class="sidebar-section sidebar-category">
+            <div class="sidebar-header pb-3">
+                &nbsp;
+
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+            <div class="sidebar-content">
+                <ul class="navbar-nav ml-auto mt-2 nav-categories-level-1 border-top">
+                </ul>
+
+
+            </div>
+        </div>
+
+        <script>
+            function showNavCategoriesLevel1() {
+                $('.nav-categories-level-2').fadeOut('fast').promise().done(function () {
+                    $('.nav-categories-level-1').fadeIn('fast');
+                });
+            }
+
+            function showNavCategoriesLevel2(id) {
+                $('.nav-categories-level-1').fadeOut('fast').promise().done(function () {
+                    $('.nav-categories-level-2.nav-category-children-' + id).fadeIn();
+                });
+            }
+
+            $(document).ready(function () {
+
+                $('.nav-categories-go-level-1').click(function (e) {
+                    showNavCategoriesLevel1();
+                    e.preventDefault();
+                });
+
+                $('.nav-categories-go-level-2').click(function (e) {
+                    var categoryId = $(this).data('id');
+                    showNavCategoriesLevel2(categoryId);
+                    e.preventDefault();
+                });
+
+            })
+        </script>
+
+        <div class="sidebar-section sidebar-search">
+            <div class="sidebar-header">
+                <h4 class="fonte-titulo">Pesquisar</h4>
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+            <div class="sidebar-content">
+                <form action="https://smarttemas.netlify.app/produtos" method="get" class="mt-5">
+                    <div class="form-group">
+                        <label>Buscar produto</label>
+                        <input type="text" class="form-control" name="term">
+                    </div>
+                    <button class="btn btn-primary btn-principal" type="submit">
+                        <i class="fa fa-search"></i> Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- <div class="sidebar-section sidebar-account">
+    <div class="sidebar-header">
+        <h4 class="fonte-titulo">Minha conta</h4>
+        <i class="fas fa-times close-button close-sidebar"></i>
+    </div>
+    <div class="sidebar-content">
+                    <div class="mt-5">
+                <a href="https://smarttemas.netlify.app/identificacao#cadastrar" class="btn btn-primary btn-principal d-block mt-4">
+                    Criar minha conta
+                </a>
+                <a href="https://smarttemas.netlify.app/identificacao#login" class="btn btn-primary btn-principal d-block mt-4">
+                    Já tenho cadastro
+                </a>
+            </div>
+            </div>
+</div> -->
+
+        <div class="sidebar-section sidebar-cart">
+
+            <div class="sidebar-header">
+                <h4 class="fonte-titulo">Carrinho</h4>
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+
+            <div class="sidebar-content mt-4">
+                <div class="cart">
+
+                    <p>Seu carrinho está vazio.</p>
+
+                </div>
+
+                <style>
+                    .cart .gift-label {}
+
+                    .cart .cart-item.gift {
+                        background-color: #fff;
+                        padding: 10px 10px 8px 10px !important;
+                    }
+
+                    .cart .form-qtd label {
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 2px;
+                    }
+
+                    .cart .spinner-input-sm {
+                        max-width: 120px;
+                    }
+
+                    .cart .price {
+                        color: #777;
+                        font-weight: normal;
+                    }
+
+                    .cart .img-thumbnail {
+                        width: 80px;
+                    }
+
+                    .cart .one-column>div {
+                        max-width: 100%;
+                        flex: 100%;
+                    }
+
+                    .cart .form-qtd label {
+                        display: none;
+                    }
+
+                    .cart .btn-texto {
+                        display: block !important;
+                    }
+
+                    .cart .btn-botao {
+                        display: none;
+                    }
+
+                    .cart .col-price-del {
+                        width: 100%;
+                        max-width: 100%;
+                        margin-left: 0 !important;
+                        flex: 100%;
+                    }
+                </style>
+
+                <script>
+                    $(document).ready(function () {
+
+                        $(".spinner-input-sm").inputSpinner({ groupClass: "input-group-sm" })
+
+                    });
+                </script>
+
+            </div>
+
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $('.show-quote-form').click(function () {
+                    $('.form-quote-area, .qtd-hidden').show();
+                    $('.sidebar-cart .form-edit, .sidebar-cart .delete-column').hide();
+                    $(this).hide();
+                })
+            });
+        </script>
+
+
+    </div>
+
+    <style>
+        .sidebar .nav-link {
+            color: #333;
+            font-size: 18px;
+            display: block;
+            position: relative;
+        }
+
+        .sidebar .dropdown-menu {
+            position: static !important;
+            transform: none !important;
+        }
+
+        .sidebar .dropdown-toggle::after {
+            position: absolute;
+            top: 21px;
+            right: 0;
+            font-size: 18px;
+        }
+
+        .sidebar-header {
+            position: relative;
+        }
+
+        .sidebar-header .close-button {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+            top: 0px;
+            font-size: 20px;
+            background: #fff;
+            border-radius: 38px;
+            line-height: 35px;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+        }
+
+        .sidebar-header h4 {
+            margin-top: 15px;
+        }
+
+        /* mobile */
+        @media (max-width: 990px) {}
+    </style>
+
+    <script>
+        $(function () {
+            'use strict'
+            $('[data-toggle="offcanvas"]').on('click', function () {
+                $('.offcanvas-collapse').toggleClass('open');
+            });
+        });
+
+        function openSidebar(section) {
+            $('.offcanvas-collapse').removeClass('open');
+            $('.sidebar .sidebar-section').hide();
+            $('.sidebar .sidebar-' + section).show();
+            $('.offcanvas-collapse').addClass('open');
+            $('.offcanvas-bg-overlay').hide().fadeIn('slow');
+            $('html, body').addClass('overflow-hidden');
+        }
+
+        $(document).ready(function () {
+
+            $('.open-sidebar').click(function () {
+                $('.offcanvas-collapse').removeClass('left');
+                if ($(this).data('from') == 'left') {
+                    $('.offcanvas-collapse').addClass('left');
+                }
+                openSidebar($(this).data('section'));
+                return false;
+            });
+
+            $('.close-sidebar').click(function () {
+                $('.offcanvas-collapse').removeClass('open');
+                $('.offcanvas-bg-overlay').fadeOut('slow');
+                $('html, body').removeClass('overflow-hidden');
+                return false;
+            });
+
+
+        });
+    </script>
+
+    <div class="wrapper">
+
+        <div class="container">
+            <div class="box-meio">
+                <div class="page-title text-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="h4 fonte-titulo text-center">Tema Ella Shopify: Vale a Pena? Análise Completa, Vantagens e Cuidados</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="box-meio">
+
+                <div class="mb-5 pb-5">
+
+          					<div id="conteudo" style="max-width: 600px; margin: 0px auto;">
+
+                      <p>Escolher um tema para Shopify vai muito além da aparência da loja. O tema influencia diretamente a velocidade de carregamento, a navegação, a apresentação dos produtos, a experiência mobile, a conversão e até a quantidade de aplicativos que você precisará instalar.</p>
+
+<p>Nesse contexto, o tema Ella se tornou uma das opções mais conhecidas entre lojistas que buscam flexibilidade, muitos recursos nativos e um visual profissional sem depender de um tema premium da loja oficial da Shopify.</p>
+
+<p>Desenvolvido pela HaloThemes e vendido na ThemeForest, o Ella chama atenção por reunir dezenas de layouts, recursos de venda, opções avançadas de personalização e ferramentas que normalmente exigiriam aplicativos extras. Mas isso não significa que ele seja a melhor escolha para qualquer loja.</p>
+
+<p>O Ella é um tema poderoso, mas também exige cuidado. Sua grande quantidade de recursos pode ser uma vantagem para lojas bem planejadas, mas pode se tornar um problema quando a loja é montada sem estratégia, com excesso de seções, imagens pesadas e muitos scripts ativos.</p>
+
+<p>Nesta análise, você vai entender quando o tema Ella vale a pena, para quais tipos de loja ele é mais indicado, quais são seus principais pontos fortes, quais cuidados tomar antes de comprar e como configurá-lo de forma mais segura para performance, conversão e usabilidade.</p>
+
+<nav class="indice-conteudo">
+    <h2>Índice</h2>
+    <ol>
+        <li><a href="#veredito-rapido">Veredito rápido</a></li>
+        <li><a href="#o-que-e">O que é o tema Ella para Shopify?</a></li>
+        <li><a href="#principais-diferenciais">Principais diferenciais do Ella</a></li>
+        <li><a href="#para-quem-indicado">Para quem o Ella é indicado?</a></li>
+        <li><a href="#quando-nao-usar">Quando o Ella pode não ser a melhor escolha?</a></li>
+        <li><a href="#vantagens">Vantagens do tema Ella</a></li>
+        <li><a href="#desvantagens">Desvantagens e pontos de atenção</a></li>
+        <li><a href="#desempenho">Desempenho e velocidade</a></li>
+        <li><a href="#conversao">Recursos de conversão</a></li>
+        <li><a href="#ux">Experiência do usuário e navegação</a></li>
+        <li><a href="#seo">SEO e estrutura técnica</a></li>
+        <li><a href="#configuracao">Como configurar o Ella da forma correta</a></li>
+        <li><a href="#erros-comuns">Erros comuns ao usar o Ella</a></li>
+        <li><a href="#comparativo">Ella vs. outros tipos de tema Shopify</a></li>
+        <li><a href="#checklist">Checklist antes de publicar</a></li>
+        <li><a href="#conclusao">Conclusão: o tema Ella vale a pena?</a></li>
+        <li><a href="#faq">Perguntas frequentes</a></li>
+    </ol>
+</nav>
+
+<h2 id="veredito-rapido">Veredito rápido</h2>
+
+<p>O tema Ella vale a pena para lojistas que querem uma loja Shopify visualmente rica, com muitos recursos nativos e alta capacidade de personalização. Ele é especialmente interessante para marcas de moda, beleza, acessórios, decoração, catálogos amplos e lojas que precisam de uma vitrine mais elaborada.</p>
+
+<p>Seu principal atrativo é o custo-benefício. O tema entrega muitos recursos em uma única compra, o que pode reduzir a necessidade de vários aplicativos pagos. Por outro lado, seu principal risco está no desempenho. Como o Ella é um tema robusto, ele precisa ser configurado com cuidado para não deixar a loja pesada, especialmente no mobile.</p>
+
+<ul>
+    <li><strong>Melhor para:</strong> lojas visuais, catálogos médios ou grandes e marcas que querem personalização.</li>
+    <li><strong>Maior vantagem:</strong> muitos recursos nativos por um custo relativamente acessível.</li>
+    <li><strong>Maior cuidado:</strong> otimização de velocidade, imagens e excesso de recursos ativos.</li>
+    <li><strong>Não é ideal para:</strong> quem quer extrema simplicidade, performance máxima sem ajustes ou suporte imediato.</li>
+    <li><strong>Resumo final:</strong> o Ella é uma boa escolha para quem sabe usar seus recursos com estratégia, mas pode ser exagerado para lojas muito simples.</li>
+</ul>
+
+<h2 id="o-que-e">O que é o tema Ella para Shopify?</h2>
+
+<p>O Ella é um tema multipropósito para Shopify criado para atender diferentes tipos de e-commerce. Ele oferece múltiplas demos, páginas pré-configuradas, layouts de produto, recursos promocionais, mega menu, carrinho AJAX, blocos de upsell, filtros, seções visuais e várias opções de personalização.</p>
+
+<p>Na prática, ele funciona como um pacote completo para montar lojas com aparência profissional sem precisar começar do zero. Em vez de depender apenas das configurações básicas da Shopify, o lojista ganha acesso a uma biblioteca extensa de elementos prontos.</p>
+
+<p>Essa proposta torna o Ella atrativo para quem deseja construir uma loja mais completa, mas também aumenta a responsabilidade na configuração. Quanto mais recursos um tema oferece, maior precisa ser o cuidado para não ativar elementos desnecessários.</p>
+
+<h2 id="principais-diferenciais">Principais diferenciais do Ella</h2>
+
+<p>O grande diferencial do Ella é combinar variedade visual com recursos comerciais. Ele não é apenas um tema bonito; é um tema pensado para lojas que precisam vender, organizar muitos produtos e criar uma experiência de compra mais envolvente.</p>
+
+<h3>1. Grande variedade de demos</h3>
+
+<p>O Ella oferece vários modelos prontos para diferentes segmentos. Isso facilita a criação de lojas para moda, beleza, acessórios, casa, decoração, eletrônicos, produtos infantis, pet shop, dropshipping e outros nichos.</p>
+
+<p>Essa variedade ajuda tanto quem quer acelerar o lançamento quanto quem deseja testar diferentes estilos visuais antes de definir uma identidade final para a loja.</p>
+
+<h3>2. Recursos nativos que reduzem dependência de apps</h3>
+
+<p>Um dos motivos pelos quais muitos lojistas escolhem o Ella é a quantidade de funcionalidades incluídas no próprio tema. Dependendo da configuração, ele pode reduzir a necessidade de instalar aplicativos para funções básicas de venda, navegação e experiência do usuário.</p>
+
+<ul>
+    <li>Mega menu avançado</li>
+    <li>Carrinho AJAX</li>
+    <li>Produtos vistos recentemente</li>
+    <li>Blocos de produtos relacionados</li>
+    <li>Contadores promocionais</li>
+    <li>Pop-ups</li>
+    <li>Seções de banners</li>
+    <li>Variações visuais de produto</li>
+    <li>Layouts diferentes para páginas de produto</li>
+    <li>Recursos para vitrines, coleções e campanhas</li>
+</ul>
+
+<h3>3. Forte apelo visual</h3>
+
+<p>O Ella é especialmente forte para marcas que dependem de imagem. Ele permite trabalhar banners grandes, coleções destacadas, blocos editoriais, vitrines de produtos, imagens de lifestyle e páginas mais completas.</p>
+
+<p>Isso é importante para segmentos nos quais o cliente compra não apenas pela função do produto, mas também pela percepção de estilo, desejo, confiança e identidade da marca.</p>
+
+<h3>4. Flexibilidade para diferentes modelos de loja</h3>
+
+<p>O tema pode ser usado tanto em lojas de nicho quanto em lojas com catálogo mais amplo. Ele também pode atender projetos de dropshipping, marcas próprias, lojas de moda, cosméticos, acessórios e e-commerces com várias categorias.</p>
+
+<p>Essa flexibilidade é positiva para lojistas que ainda estão testando posicionamento ou que pretendem expandir o catálogo no futuro.</p>
+
+<h2 id="para-quem-indicado">Para quem o Ella é indicado?</h2>
+
+<p>O Ella é mais indicado para lojistas que precisam de uma loja visual, completa e com espaço para crescimento. Ele tende a funcionar melhor quando existe uma estratégia clara de marca, catálogo e experiência de compra.</p>
+
+<h3>Marcas de moda, beleza e acessórios</h3>
+
+<p>Esses segmentos costumam se beneficiar bastante do Ella porque dependem de uma apresentação visual forte. O tema permite destacar coleções, trabalhar imagens grandes, criar vitrines promocionais e montar páginas de produto mais completas.</p>
+
+<p>Para lojas de moda, por exemplo, recursos como variações de cor, imagens de produto, coleções em destaque e recomendações complementares podem melhorar a experiência de compra.</p>
+
+<h3>Lojas com catálogo médio ou grande</h3>
+
+<p>O Ella também faz sentido para lojas com muitas categorias, produtos e variações. O mega menu, os filtros, as páginas de coleção e os blocos de navegação ajudam o cliente a encontrar o que procura com mais facilidade.</p>
+
+<p>Quanto maior o catálogo, mais importante é organizar bem a jornada do usuário. Nesse ponto, o tema oferece ferramentas úteis para criar uma navegação mais estruturada.</p>
+
+<h3>Lojistas que querem reduzir custos com aplicativos</h3>
+
+<p>Como o tema inclui vários recursos nativos, ele pode ajudar a diminuir a dependência de aplicativos pagos. Isso não significa que você não precisará de nenhum app, mas pode evitar a instalação de ferramentas extras para funções simples.</p>
+
+<p>Essa economia pode ser relevante no longo prazo, principalmente para lojas em fase inicial ou negócios que querem controlar melhor os custos mensais.</p>
+
+<h3>Projetos que precisam testar diferentes estilos</h3>
+
+<p>Como o Ella oferece diversas demos e layouts, ele pode ser interessante para empreendedores que querem testar nichos, abordagens visuais e estruturas de página sem trocar de tema constantemente.</p>
+
+<p>Isso é útil para dropshipping, lojas generalistas, marcas em validação e projetos que ainda estão ajustando sua proposta de valor.</p>
+
+<h2 id="quando-nao-usar">Quando o Ella pode não ser a melhor escolha?</h2>
+
+<p>Apesar de ser um tema completo, o Ella não é a escolha ideal para todos os cenários. Em alguns casos, um tema mais simples, leve ou oficial pode ser mais adequado.</p>
+
+<h3>Quando a loja é muito simples</h3>
+
+<p>Se você pretende vender poucos produtos, com uma estrutura direta e sem muitas seções, talvez o Ella seja mais robusto do que o necessário. Nesse caso, um tema mais leve pode entregar uma experiência mais objetiva e fácil de manter.</p>
+
+<h3>Quando a prioridade absoluta é velocidade</h3>
+
+<p>O Ella pode ser otimizado, mas não deve ser tratado como um tema minimalista. Por ter muitos recursos, ele pode exigir ajustes para alcançar uma boa performance, principalmente em dispositivos móveis.</p>
+
+<p>Se sua prioridade é ter a loja mais leve possível desde o início, talvez seja melhor considerar um tema mais simples ou uma estrutura mais enxuta.</p>
+
+<h3>Quando o lojista não quer lidar com configuração</h3>
+
+<p>O Ella oferece muitas opções. Isso é ótimo para quem gosta de personalizar, mas pode ser cansativo para quem quer apenas escolher um tema, trocar textos e publicar rapidamente.</p>
+
+<p>Para iniciantes absolutos, a quantidade de configurações pode atrasar o lançamento e gerar dúvidas durante a montagem da loja.</p>
+
+<h3>Quando o suporte imediato é indispensável</h3>
+
+<p>Como o tema é vendido em marketplace, o suporte normalmente acontece por documentação e tickets. Isso pode ser suficiente para muitos casos, mas não é ideal para quem precisa de atendimento em tempo real ou acompanhamento personalizado.</p>
+
+<h2 id="vantagens">Vantagens do tema Ella</h2>
+
+<h3>1. Excelente custo-benefício</h3>
+
+<p>O Ella costuma ser procurado porque entrega muitos recursos por uma taxa única. Para lojistas que não querem pagar mensalmente por vários aplicativos, isso pode representar uma economia importante.</p>
+
+<p>Antes de comprar, porém, é recomendável verificar o preço atual, as condições da licença e o que está incluído no suporte, pois essas informações podem mudar conforme a plataforma de venda.</p>
+
+<h3>2. Aparência profissional</h3>
+
+<p>O tema permite criar uma loja com visual sofisticado mesmo sem desenvolver um layout do zero. Suas demos ajudam a acelerar a construção de páginas com aparência mais comercial e organizada.</p>
+
+<h3>3. Boa estrutura para catálogos complexos</h3>
+
+<p>Lojas com muitas categorias, coleções e produtos podem se beneficiar da estrutura de navegação do Ella. O mega menu e os filtros ajudam a organizar a loja e reduzir o atrito na busca por produtos.</p>
+
+<h3>4. Recursos de conversão integrados</h3>
+
+<p>O tema oferece elementos que podem apoiar estratégias de venda, como blocos promocionais, produtos relacionados, contadores, pop-ups e recomendações.</p>
+
+<p>Esses recursos não garantem aumento de conversão por si só, mas podem ajudar quando usados com moderação e dentro de uma estratégia coerente.</p>
+
+<h3>5. Alta capacidade de personalização</h3>
+
+<p>O Ella permite ajustar diversos elementos visuais da loja, incluindo página inicial, página de produto, páginas de coleção, menus, banners, vitrines, blocos de conteúdo e componentes promocionais.</p>
+
+<p>Essa flexibilidade é útil para marcas que querem se diferenciar e evitar uma aparência genérica.</p>
+
+<h2 id="desvantagens">Desvantagens e pontos de atenção</h2>
+
+<h3>1. Pode ficar pesado se mal configurado</h3>
+
+<p>O principal ponto de atenção do Ella é o desempenho. Como o tema traz muitos recursos, a loja pode ficar lenta se o lojista ativar seções demais, usar imagens pesadas ou instalar muitos aplicativos adicionais.</p>
+
+<p>O ideal é começar com uma estrutura simples e ativar apenas os recursos que realmente contribuem para a experiência do cliente.</p>
+
+<h3>2. Curva de aprendizado maior</h3>
+
+<p>Por ser um tema completo, o Ella exige mais tempo de configuração do que temas básicos. Lojistas iniciantes podem precisar de paciência para entender todas as opções disponíveis.</p>
+
+<h3>3. Risco de excesso visual</h3>
+
+<p>Ter muitos recursos disponíveis não significa que todos devem ser usados. Um erro comum é transformar a página inicial em uma sequência longa de banners, carrosséis, pop-ups e blocos promocionais.</p>
+
+<p>Isso pode prejudicar a clareza da loja e dificultar a decisão de compra.</p>
+
+<h3>4. Dependência da qualidade da configuração</h3>
+
+<p>O resultado final do Ella depende muito de como ele é configurado. A mesma base pode gerar uma loja bonita e eficiente ou uma loja lenta, confusa e poluída.</p>
+
+<p>Por isso, o tema não deve ser visto como uma solução automática. Ele é uma ferramenta poderosa, mas precisa de direção estratégica.</p>
+
+<h2 id="desempenho">Desempenho e velocidade</h2>
+
+<p>O desempenho é provavelmente o ponto mais importante ao avaliar o tema Ella. Por ser um tema cheio de funcionalidades, ele pode apresentar resultados inferiores em velocidade se não for otimizado corretamente.</p>
+
+<p>No conteúdo analisado, foram citados testes com pontuação baixa no mobile e desempenho intermediário no desktop. Esse tipo de resultado é comum em temas muito completos, especialmente quando há excesso de imagens, scripts, animações, carrosséis e aplicativos instalados.</p>
+
+<p>Isso não significa que o Ella seja necessariamente ruim em performance. Significa que ele exige uma configuração mais cuidadosa do que temas minimalistas.</p>
+
+<h3>O que mais afeta a velocidade no Ella?</h3>
+
+<ul>
+    <li>Imagens grandes sem compressão</li>
+    <li>Muitos banners na página inicial</li>
+    <li>Carrosséis em excesso</li>
+    <li>Pop-ups e scripts promocionais ativos ao mesmo tempo</li>
+    <li>Aplicativos duplicando funções já existentes no tema</li>
+    <li>Vídeos carregando automaticamente</li>
+    <li>Páginas de produto muito longas e pesadas</li>
+</ul>
+
+<h3>Como melhorar a performance</h3>
+
+<ul>
+    <li>Comprima todas as imagens antes de subir para a Shopify.</li>
+    <li>Use formatos modernos de imagem sempre que possível.</li>
+    <li>Evite banners muito grandes na primeira dobra.</li>
+    <li>Use lazy loading para imagens abaixo da área inicial da página.</li>
+    <li>Remova seções que não geram clique, venda ou confiança.</li>
+    <li>Evite instalar apps para funções que o Ella já oferece.</li>
+    <li>Teste a loja em dispositivos móveis reais, não apenas no desktop.</li>
+    <li>Revise o PageSpeed Insights depois de cada grande alteração.</li>
+</ul>
+
+<p>Em lojas Shopify, velocidade não é apenas uma questão técnica. Ela afeta experiência, taxa de rejeição, conversão e percepção de confiança. Por isso, o Ella deve ser configurado com foco em leveza, principalmente no mobile.</p>
+
+<h2 id="conversao">Recursos de conversão</h2>
+
+<p>O Ella inclui vários elementos que podem ajudar a melhorar a conversão quando usados de forma estratégica. O ponto central é usar esses recursos para facilitar a decisão de compra, e não para sobrecarregar o visitante.</p>
+
+<h3>Páginas de produto completas</h3>
+
+<p>As páginas de produto do Ella podem ser configuradas com galerias, vídeos, variações, blocos de informação, produtos relacionados, guias de tamanho, selos de confiança e elementos promocionais.</p>
+
+<p>Uma boa página de produto deve responder rapidamente às principais dúvidas do cliente:</p>
+
+<ul>
+    <li>O que é o produto?</li>
+    <li>Quais são seus benefícios?</li>
+    <li>Como escolher a variação correta?</li>
+    <li>Qual é o prazo de entrega?</li>
+    <li>Existe troca, garantia ou política de devolução?</li>
+    <li>Por que comprar nesta loja?</li>
+</ul>
+
+<h3>Upsell e produtos relacionados</h3>
+
+<p>O Ella permite trabalhar recomendações de produtos complementares, o que pode ajudar a aumentar o ticket médio. Esse recurso é especialmente útil para lojas de moda, cosméticos, acessórios, decoração, eletrônicos e itens que combinam entre si.</p>
+
+<p>O segredo é fazer recomendações relevantes. Produtos relacionados devem parecer úteis para o cliente, não apenas uma tentativa forçada de vender mais.</p>
+
+<h3>Urgência e promoções</h3>
+
+<p>Contadores regressivos, banners promocionais e chamadas de oferta podem ajudar em campanhas reais. No entanto, devem ser usados com moderação.</p>
+
+<p>Urgência falsa ou exagerada pode prejudicar a confiança do cliente. O ideal é usar esse tipo de recurso apenas quando houver uma promoção verdadeira, prazo real ou condição especial limitada.</p>
+
+<h3>Elementos de confiança</h3>
+
+<p>Além de recursos promocionais, uma loja precisa transmitir segurança. O Ella permite incluir blocos que destacam benefícios como troca fácil, pagamento seguro, entrega, atendimento e garantias.</p>
+
+<p>Esses elementos são importantes porque reduzem objeções e ajudam o cliente a se sentir mais confortável antes de finalizar a compra.</p>
+
+<h2 id="ux">Experiência do usuário e navegação</h2>
+
+<p>A experiência do usuário é um dos pontos em que o Ella pode se destacar, principalmente em lojas com muitos produtos. O tema oferece recursos que ajudam a organizar a navegação e facilitar a descoberta de produtos.</p>
+
+<h3>Mega menu</h3>
+
+<p>O mega menu é útil para lojas com várias categorias. Ele permite exibir coleções, subcategorias, imagens, links e produtos em destaque dentro do menu principal.</p>
+
+<p>Quando bem configurado, o mega menu ajuda o visitante a entender rapidamente o que a loja vende e onde encontrar cada tipo de produto.</p>
+
+<h3>Páginas de coleção</h3>
+
+<p>As páginas de coleção são fundamentais para lojas com catálogo amplo. O Ella permite criar vitrines organizadas, com filtros, ordenação e blocos visuais que melhoram a navegação.</p>
+
+<p>Essas páginas devem ser claras, rápidas e objetivas. O cliente precisa conseguir filtrar, comparar e acessar produtos sem esforço.</p>
+
+<h3>Carrinho AJAX</h3>
+
+<p>O carrinho AJAX permite adicionar produtos ao carrinho sem recarregar a página inteira. Isso cria uma experiência mais fluida e reduz interrupções no processo de compra.</p>
+
+<p>Esse recurso é especialmente útil em lojas nas quais o cliente tende a adicionar mais de um produto ao carrinho.</p>
+
+<h3>Produtos vistos recentemente</h3>
+
+<p>Esse recurso ajuda o cliente a retomar itens que visualizou anteriormente. É simples, mas útil em lojas com grande variedade de produtos, onde o visitante pode comparar várias opções antes de decidir.</p>
+
+<h2 id="seo">SEO e estrutura técnica</h2>
+
+<p>O tema de uma loja também influencia o SEO. Embora conteúdo, autoridade e estratégia sejam fundamentais, a estrutura técnica do tema pode ajudar ou prejudicar a indexação, a velocidade e a experiência do usuário.</p>
+
+<h3>O que observar no Ella em relação a SEO</h3>
+
+<ul>
+    <li>Uso correto de títulos e hierarquia de headings.</li>
+    <li>Velocidade de carregamento no mobile.</li>
+    <li>Imagens otimizadas com textos alternativos.</li>
+    <li>URLs de coleções e produtos organizadas.</li>
+    <li>Conteúdo útil nas páginas de categoria.</li>
+    <li>Evitar excesso de seções duplicadas ou conteúdo superficial.</li>
+</ul>
+
+<p>O Ella pode ser usado em lojas com boa estrutura de SEO, mas o tema sozinho não resolve o posicionamento orgânico. É necessário trabalhar descrições de produtos, categorias, blogs, links internos, imagens otimizadas e experiência de navegação.</p>
+
+<h2 id="configuracao">Como configurar o Ella da forma correta</h2>
+
+<p>Para aproveitar o Ella sem comprometer a performance, o ideal é configurar a loja em etapas. Em vez de ativar todos os recursos de uma vez, comece com o essencial e adicione elementos conforme houver necessidade real.</p>
+
+<h3>1. Comece pela estrutura da loja</h3>
+
+<p>Antes de personalizar o visual, defina a arquitetura da loja:</p>
+
+<ul>
+    <li>Categorias principais</li>
+    <li>Coleções prioritárias</li>
+    <li>Produtos em destaque</li>
+    <li>Menu principal</li>
+    <li>Rodapé</li>
+    <li>Páginas institucionais</li>
+    <li>Políticas de troca, envio e privacidade</li>
+</ul>
+
+<p>Uma loja bonita, mas mal organizada, tende a converter menos. A estrutura vem antes da estética.</p>
+
+<h3>2. Monte uma home objetiva</h3>
+
+<p>A página inicial não precisa mostrar tudo. Ela deve guiar o visitante para as principais ações: conhecer a marca, acessar categorias, ver produtos relevantes e entender por que comprar na loja.</p>
+
+<p>Uma boa estrutura inicial pode incluir:</p>
+
+<ul>
+    <li>Banner principal com proposta clara</li>
+    <li>Categorias mais importantes</li>
+    <li>Produtos em destaque</li>
+    <li>Diferenciais da marca</li>
+    <li>Prova social ou avaliações</li>
+    <li>Bloco de confiança sobre entrega, troca e pagamento</li>
+</ul>
+
+<h3>3. Configure o mobile com prioridade</h3>
+
+<p>Grande parte do tráfego de e-commerce vem de dispositivos móveis. Por isso, a versão mobile deve ser pensada primeiro.</p>
+
+<p>Teste menus, botões, imagens, carrosséis, filtros, variações de produto, carrinho e checkout em telas menores. O que parece bom no desktop pode ficar pesado ou confuso no celular.</p>
+
+<h3>4. Evite duplicar funcionalidades</h3>
+
+<p>Antes de instalar um aplicativo, verifique se o Ella já oferece a função desejada. Instalar apps desnecessários pode aumentar o número de scripts, piorar a velocidade e criar conflitos.</p>
+
+<h3>5. Faça testes antes de publicar</h3>
+
+<p>Depois de configurar o tema, teste a loja como se fosse um cliente. Navegue pelas categorias, abra produtos, adicione itens ao carrinho, simule a compra e revise todas as etapas.</p>
+
+<p>Também é importante testar a loja em diferentes navegadores e dispositivos.</p>
+
+<h2 id="erros-comuns">Erros comuns ao usar o Ella</h2>
+
+<h3>Ativar recursos demais</h3>
+
+<p>Esse é o erro mais comum. O Ella oferece muitos recursos, mas nem todos precisam estar ativos. Quanto mais elementos a loja carrega, maior o risco de lentidão e confusão visual.</p>
+
+<h3>Usar imagens pesadas</h3>
+
+<p>Imagens grandes e sem compressão prejudicam diretamente a velocidade. Como o Ella valoriza muito o visual, é essencial otimizar todos os arquivos antes de publicá-los.</p>
+
+<h3>Copiar uma demo sem adaptar à marca</h3>
+
+<p>As demos são bons pontos de partida, mas não devem ser usadas sem ajustes. Textos, banners, categorias e chamadas precisam refletir a proposta real da loja.</p>
+
+<h3>Ignorar a página de produto</h3>
+
+<p>Muitos lojistas focam apenas na página inicial, mas a decisão de compra acontece principalmente na página de produto. É nela que o cliente avalia detalhes, benefícios, imagens, preço, frete e confiança.</p>
+
+<h3>Instalar muitos aplicativos</h3>
+
+<p>Mesmo usando um tema completo, alguns lojistas continuam instalando apps para tudo. Isso pode deixar a loja pesada e prejudicar a experiência.</p>
+
+<h2 id="comparativo">Ella vs. outros tipos de tema Shopify</h2>
+
+<p>Em vez de comparar apenas nomes específicos, é mais útil entender como o Ella se posiciona em relação a diferentes tipos de tema.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Tipo de tema</th>
+            <th>Principal vantagem</th>
+            <th>Principal limitação</th>
+            <th>Quando escolher</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ella</td>
+            <td>Muitos recursos e alta personalização</td>
+            <td>Exige otimização e configuração cuidadosa</td>
+            <td>Quando você quer flexibilidade visual e recursos nativos</td>
+        </tr>
+        <tr>
+            <td>Temas gratuitos da Shopify</td>
+            <td>Simplicidade, leveza e facilidade inicial</td>
+            <td>Menos recursos avançados</td>
+            <td>Quando a loja é simples ou está começando</td>
+        </tr>
+        <tr>
+            <td>Temas premium oficiais</td>
+            <td>Boa integração, suporte mais previsível e acabamento profissional</td>
+            <td>Custo geralmente mais alto</td>
+            <td>Quando você quer uma solução premium mais enxuta e confiável</td>
+        </tr>
+        <tr>
+            <td>Outros temas de marketplace</td>
+            <td>Grande variedade de demos e recursos</td>
+            <td>Qualidade, suporte e performance variam bastante</td>
+            <td>Quando você busca custo-benefício e muitas opções visuais</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>O Ella se destaca quando o objetivo é obter muitos recursos por um custo menor. Já temas mais simples podem ser melhores para lojas pequenas, projetos minimalistas ou negócios que priorizam velocidade acima de personalização.</p>
+
+<h2 id="checklist">Checklist antes de publicar</h2>
+
+<p>Antes de colocar uma loja com o tema Ella no ar, revise os pontos abaixo:</p>
+
+<ul>
+    <li>A página inicial está objetiva e sem excesso de seções?</li>
+    <li>As imagens foram comprimidas?</li>
+    <li>O menu está claro e fácil de navegar?</li>
+    <li>As categorias principais estão bem organizadas?</li>
+    <li>A versão mobile foi testada com atenção?</li>
+    <li>Os botões de compra estão visíveis?</li>
+    <li>As páginas de produto têm informações suficientes?</li>
+    <li>As políticas de entrega, troca e privacidade estão acessíveis?</li>
+    <li>O carrinho funciona corretamente?</li>
+    <li>O checkout foi testado do início ao fim?</li>
+    <li>Os aplicativos instalados são realmente necessários?</li>
+    <li>Os pop-ups e contadores estão sendo usados com moderação?</li>
+    <li>O desempenho foi testado após a configuração final?</li>
+    <li>A loja foi revisada em celular, tablet e desktop?</li>
+</ul>
+
+<h2 id="conclusao">Conclusão: o tema Ella vale a pena?</h2>
+
+<p>O tema Ella vale a pena para lojistas que querem uma loja Shopify completa, visualmente forte e com muitos recursos de personalização. Ele é uma boa escolha para marcas que precisam apresentar produtos de forma atrativa, organizar catálogos maiores e reduzir a dependência de aplicativos externos.</p>
+
+<p>Seu maior ponto positivo é o custo-benefício. O Ella entrega uma quantidade significativa de recursos em um único tema, o que pode ser muito vantajoso para quem quer montar uma loja mais robusta sem investir em várias ferramentas adicionais.</p>
+
+<p>Por outro lado, ele não é a melhor opção para todos. Se você quer uma loja extremamente simples, leve e rápida desde o início, talvez um tema mais básico seja mais adequado. O Ella exige critério, otimização e uma configuração cuidadosa para entregar seu melhor resultado.</p>
+
+<p><strong>Em resumo:</strong> o Ella é um tema poderoso, flexível e competitivo, mas deve ser usado com estratégia. Ele funciona melhor quando o lojista escolhe bem quais recursos ativar, mantém a loja enxuta e prioriza a experiência do usuário, especialmente no mobile.</p>
+
+<h2 id="faq">Perguntas frequentes</h2>
+
+<h3>O tema Ella é bom para Shopify?</h3>
+
+<p>Sim. O Ella é uma boa opção para Shopify, principalmente para lojas que precisam de muitos recursos, personalização visual e estrutura para catálogos médios ou grandes. No entanto, ele exige cuidado com performance e configuração.</p>
+
+<h3>O Ella é indicado para iniciantes?</h3>
+
+<p>Depende. Iniciantes que querem uma loja simples podem achar o tema complexo. Já iniciantes dispostos a aprender e configurar a loja com calma podem se beneficiar da variedade de recursos disponíveis.</p>
+
+<h3>O Ella é um tema rápido?</h3>
+
+<p>O Ella pode ter bom desempenho se for bem otimizado, mas não deve ser considerado um tema ultraleve por padrão. Imagens, aplicativos, scripts e excesso de seções podem afetar bastante a velocidade.</p>
+
+<h3>O tema Ella serve para dropshipping?</h3>
+
+<p>Sim. O Ella pode ser usado em lojas de dropshipping, especialmente quando o lojista quer testar diferentes nichos, produtos e estruturas visuais. Para lojas de produto único, porém, pode haver temas mais simples e diretos.</p>
+
+<h3>O Ella é bom para lojas de moda?</h3>
+
+<p>Sim. Moda é um dos segmentos em que o Ella costuma fazer mais sentido, pois o tema valoriza imagens, coleções, variações de produto, vitrines e elementos visuais que ajudam a construir desejo de compra.</p>
+
+<h3>Preciso instalar aplicativos usando o Ella?</h3>
+
+<p>Provavelmente sim, mas em menor quantidade. O Ella já inclui muitos recursos nativos, mas funções específicas como avaliações avançadas, e-mail marketing, programas de fidelidade, automações e integrações externas ainda podem exigir aplicativos.</p>
+
+<h3>O Ella substitui um tema premium oficial da Shopify?</h3>
+
+<p>Em alguns casos, sim. O Ella oferece muitos recursos e pode ser uma alternativa mais acessível. Porém, temas premium oficiais podem ter suporte, integração e desempenho mais previsíveis, dependendo do projeto.</p>
+
+<h3>Qual é o maior cuidado ao usar o Ella?</h3>
+
+<p>O maior cuidado é evitar excesso. Use apenas os recursos necessários, otimize imagens, revise aplicativos instalados e teste a loja no mobile. O Ella entrega bons resultados quando é configurado com estratégia.</p>
+
+<h3>O tema Ella vale a pena?</h3>
+
+<p>Sim, vale a pena para lojistas que querem flexibilidade, muitos recursos e bom custo-benefício. Não é a melhor escolha para quem busca extrema simplicidade, suporte imediato ou performance máxima sem ajustes.</p>
+           
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="container pt-3">
+            <div class="pt-4 pb-4 pt-md-5">
+
+
+                <div class="row">
+                    <div class="col-12 col-md-4 summary">
+                        <div class="pr-0 pr-md-4">
+                            <p class="h6">SmartTemas</p>
+                            <div class="text-left mt-0 mb-3">
+                                <p class="small d-block">
+
+
+
+
+                                    <br>Todos os direitos reservados
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-4 institutional">
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-3 information">
+                        <p class="h6">Informações</p>
+                        <ul class="list-unstyled">
+                            <li><a href="https://smarttemas.netlify.app/temas-para-loja-integrada">Temas Loja Integrada</a></li>
+                            <li><a href="https://smarttemas.netlify.app/temas-para-nuvemshop">Temas Nuvemshop</a></li>
+                            <li><a href="https://smarttemas.netlify.app/temas-para-shopify">Temas Shopify</a></li>
+                            <li><a href="https://smarttemas.netlify.app/loja-virtual">Loja Virtual</a></li>
+                            <li><a href="https://smarttemas.netlify.app/o-que-e-ecommerce">O que é e-commerce</a></li>
+                            <li><a href="https://smarttemas.netlify.app/dropshipping">Dropshipping</a></li>
+							<li><a href="https://smarttemas.netlify.app/melhores-layouts-de-lojas-virtuais">Layouts para Lojas Virtuais</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 col-md-2 ml-auto mb-3 social-media">
+                        <p class="h6 mb-3">Redes sociais</p>
+                        <ul class="social-media-list list-inline mb-0">
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        footer a {
+            color: #666;
+        }
+    </style>
+
+    <div class="direitos">
+        <div class="text-center fonte-padrao">
+            
+        </div>
+    </div>
+
+    <style>
+        .direitos,
+        .direitos *,
+        .direitos::before,
+        .direitos::after,
+        .direitos>div,
+        .direitos div,
+        .direitos div a,
+        .direitos strong {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 98 !important;
+            pointer-events: auto !important;
+            height: auto !important;
+            width: auto !important;
+            max-height: none !important;
+            max-width: none !important;
+        }
+    </style>
+
+</body>
+
+</html>
